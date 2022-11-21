@@ -1,0 +1,75 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>README.md</title>
+    <style type="text/css">
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+
+        </style>
+  </head>
+  <body>
+    <h1 id="busqueda-heuristica-sin-adversarios">Búsqueda heurística sin adversarios</h1>
+    <h1 id="practica-2">1.3. Práctica 2</h1>
+    <hr />
+    <h2 id="instalacion-de-ant">1. Instalación de ANT</h2>
+    <p>Se debe instalar Apache Ant y agregar variables de entorno para ANT.</p>
+    <p>Dentro del directorio bin de la instalación de Ant se encuentran
+los archivos de arranque en forma de "scripts" para Shell. El comando ant ejecuta Ant sobre los parámetros
+del archivo build.xml.</p>
+    <p>Para comprobar que está bien instalado ejecutar el siguiente comando:</p>
+    <pre>
+      <code>ant -version
+</code>
+    </pre>
+    <h2 id="ejecucion-del-programa">2. Ejecución del programa</h2>
+    <p>Se debe ejecutar desde la carpeta java-algorithms-implementation.
+Para ejecutar la clase Main.java usar el comando:</p>
+    <pre>
+      <code>ant run_main
+</code>
+    </pre>
+    <h2 id="grafo">3. Grafo</h2>
+    <p>
+      <img src="docs/diagram.png" alt="plot" />
+    </p>
+    <p>En el grafo anterior queremos encontrar el camino óptimo desde S a F. Al ejecutar el programa nos devuelve el siguiente resultado:</p>
+    <p>
+      <img src="docs/result.JPG" alt="plot" />
+    </p>
+    <h2 id="preguntas-sobre-el-programa">4. Preguntas sobre el programa</h2>
+    <p>
+      <strong>¿Qué variable representa la lista ABIERTA?</strong>
+    </p>
+    <p>La variable openSet de la clase Astar.java.</p>
+    <p>
+      <strong>¿Qué variable representa la función g?</strong>
+    </p>
+    <p>La variable gScore en la clase Astar.java.</p>
+    <p>
+      <strong>¿Qué variable representa la función f?</strong>
+    </p>
+    <p>La variable fScore en la clase Astar.java.</p>
+    <p>
+      <strong>¿Qué método habría que modificar para que la heurística representara la distancia aérea entre vértices?</strong>
+    </p>
+    <p>El método heuristicCostEstimate en la clase Astar.java. Devuelve 1 y no utiliza un cálculo
+de distancias aéreas.</p>
+    <p>
+      <strong>¿Realiza este método reevaluación de nudos cuando se encuentra una nueva ruta a un determinado vértice? Justifique la respuesta.</strong>
+    </p>
+    <p>Sí realiza reevaluación de los nudos cuando se encuentra una nueva ruta en un vértice concreto. Se puede ver en la clase Astar.java:</p>
+    <pre>
+      <code>// fScore has changed, re-sort the list
+Collections.sort(openSet,comparator);
+</code>
+    </pre>
+    <p>Se ordenan los nudos del openSet para que el siguiente nudo a expandir sea el que tenga el menor valor de fScore. El 'comparator'
+compara los fScore y devuelve los valores necesarios para la función sort.</p>
+  </body>
+</html>
